@@ -1,0 +1,6 @@
+GET     /graphiql                        controllers.Assets.at(path="/public", file="html/graphiql.html")
+POST    /graphql                         controllers.GraphqlController.graphql
+
+
+POST    /auth/signin                     controllers.SignInController.authenticate
+POST    /auth/signup                     controllers.SignUpController.signUp
