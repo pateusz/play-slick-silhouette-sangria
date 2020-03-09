@@ -1,10 +1,3 @@
-<!--
- *  Copyright (c) 2019 GraphQL Contributors
- *  All rights reserved.
- *
- *  This source code is licensed under the license found in the
- *  LICENSE file in the root directory of this source tree.
--->
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +38,6 @@
     <link rel="stylesheet" href="https://unpkg.com/graphiql/graphiql.min.css" />
 </head>
 <body>
-<div class="jwt-token">JWT Token <input id="jwt-token" placeholder="JWT Token goes here"></div>
 <div id="graphiql">Loading...</div>
 <script
         src="https://unpkg.com/graphiql/graphiql.min.js"
@@ -53,8 +45,13 @@
 ></script>
 <script src="/renderExample.js" type="application/javascript"></script>
 <script>
+      window.onload = localStorage.removeItem('jwttoken');
+      var jwtToken = localStorage.getItem('jwttoken') || ''
+      if (jwtToken == '') {
+          jwtToken = prompt("Enter JWT token")
+          localStorage.setItem('jwttoken', jwtToken);
+      }
       function graphQLFetcher(graphQLParams) {
-        const jwtToken = document.getElementById('jwt-token').value;
         return fetch(
           '/graphql',
           {
