@@ -1,3 +1,4 @@
+<!-- <meta name="google-site-verification" content="qwXl9E1GhGF71zyQaFwsQD1AD9ruqvNJfmVlTGab9kE" /> -->
 # `Play Silhouette Sangria Slick REST Seed` 
 
 Example project for Play Framework that wires up couple of components:
